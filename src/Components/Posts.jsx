@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useEffect } from 'react';
+import Post from './Post'
 
 function Posts() {
 
@@ -35,7 +36,6 @@ function Posts() {
     if((window.scrollY + window.innerHeight) >= document.documentElement.scrollHeight){
       console.log("THIS IS BOTTOMED OUT: " + window.scrollY)
       fetchNewPosts()
-      window.scrollTo(window.scrollY)
     }
     console.log(window.scrollY)
       
@@ -44,7 +44,7 @@ function Posts() {
   //Render
   return (
     <div class="post-container">
-      {posts.map((post) => <img class="grid-image" src={post} alt="post" />)}
+      {posts.map((post) => <Post url={post}/>)}
     </div>
   )
 
