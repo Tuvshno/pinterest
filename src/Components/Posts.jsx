@@ -17,8 +17,10 @@ function Posts() {
     const res = await fetch('http://localhost:3000/api/v1/posts')
     const data = await res.json()
 
+    console.log(data)
+
     let newPosts = data.post.map(x => {
-      let object = x.imageURL
+      let object = x
       return object
     })
 
@@ -38,13 +40,12 @@ function Posts() {
       fetchNewPosts()
     }
     console.log(window.scrollY)
-      
   }
 
   //Render
   return (
     <div class="post-container">
-      {posts.map((post) => <Post url={post}/>)}
+      {posts.map((post) => <Post object={post}/>)}
     </div>
   )
 

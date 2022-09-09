@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {useNavigate} from 'react-router-dom';
 
 import logo from './assets/pinterest-logo.png'
 import bell from './assets/bell.png'
@@ -8,6 +9,8 @@ import search from './assets/magnifying-glass.png'
 import cancel from './assets/cancel.png'
 
 function Navbar() {
+
+  const navigation = useNavigate()
 
   let [isClicked, setIsClicked] = useState(false)
 
@@ -20,8 +23,12 @@ function Navbar() {
     setIsClicked(prevIsClicked => !prevIsClicked)
   }
 
-  function refreshPage() {
-    window.location.reload(false);
+  function navigateToHome() {
+    navigation('/')
+  }
+
+  function navigateToFollowing() {
+    navigation('/following')
   }
 
   //Create Button
@@ -52,10 +59,10 @@ function Navbar() {
     <div class="Navbar">
       <div class="nav-container flex">
         <div class="nav-header-container">
-          <input type="image" class="nav-logo" src={logo} alt="logo" onClick={refreshPage} />
+          <input type="image" class="nav-logo" src={logo} alt="logo" onClick={navigateToHome} />
           <div class="nav-headers flex">
-            <button class="nav-home nav-header" onClick={refreshPage}>Home</button>
-            <button class="nav-following nav-header">Following</button>
+            {window.location.pathname === "/" ? <button class="nav-home-selected nav-header" onClick={navigateToHome}>Home</button> : <button class="nav-home nav-header" onClick={navigateToHome}>Home</button>}
+            {window.location.pathname === "/following" ? <button class="nav-following-selected nav-header" onClick={navigateToFollowing}>Following</button> : <button class="nav-following nav-header" onClick={navigateToFollowing}>Following</button>}
             <div class="create-button-container flex">
               <button class="nav-create nav-header" onClick={createClicked}>Create</button>
               <input type="image" class="header-dropdown" onClick={createClicked} src={arrowdown} alt="arrowdown" />

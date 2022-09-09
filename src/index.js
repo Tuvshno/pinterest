@@ -3,16 +3,31 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 
-import Navbar from './Components/Navbar'
-import Posts from './Components/Posts'
+
+import Home from './Components/Home'
+import Following from './Components/Following'
+import Pin from './Components/Pin'
+
+import { BrowserRouter as Router, Routes, 
+  Route} from "react-router-dom";
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <div>
-    <Navbar />
-    <Posts />
-  </div>
+  <>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />}/>
+
+        <Route path="/following" element={<Following />}/>
+
+        <Route path="/profile" element={<Home />}/>
+      
+        <Route path="/pin/:id" element={<Pin />}/>
+
+      </Routes>
+    </Router>
+  </>
 );
 
 // If you want to start measuring performance in your app, pass a function

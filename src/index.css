@@ -24,6 +24,10 @@ picture {
 
 /* general */
 
+* {
+  font-family: 'Roboto';
+}
+
 .flex {
   display: flex;
   gap: var(--gap, 1rem);
@@ -78,6 +82,19 @@ picture {
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.25);
   z-index: -1
+}
+
+.overlay-ontop {
+  position: fixed;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.25);
+  z-index: 1000;
 }
 
 .invisible-overlay {
@@ -143,7 +160,19 @@ picture {
   margin-right: 0;
 }
 
+.nav-home-selected {
+  background-color: black;
+  color: white;
+  margin-right: -10px;
+}
+
 .nav-home {
+  background-color: transparent;
+  color: black;
+  margin-right: -10px;
+}
+
+.nav-following-selected {
   background-color: black;
   color: white;
   margin-right: -10px;
@@ -152,6 +181,7 @@ picture {
 .nav-following {
   margin-right: -10px;
 }
+
 
 .header-dropdown {
   height: 15px;
@@ -550,4 +580,227 @@ picture {
   height: 15px;
   align-self: center;
   margin-left: 5px;
+}
+
+
+/*LARGE POST */
+.large-post-container {
+  display: flex;
+  border-radius: 20px;
+  margin: 110px auto;
+  width: min-content;
+  background-color: white;
+  filter: drop-shadow(0 0 6px lightgray);
+}
+
+.large-post-image {
+  width: auto;
+  height: auto;
+  border-radius: 20px 0 0 20px;
+}
+
+.large-post-image-hidden {
+  opacity: 0;
+}
+
+.large-post-information {
+  position: relative;
+}
+
+.large-post-metadata {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.large-post-small-button {
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+}
+
+.large-post-small-button:hover {
+  background-color: #E9E9E8;
+}
+
+.large-post-small-button img{
+  width: 20px;
+  height: 20px;
+  padding: .75rem .5rem;
+  align-self: center;
+}
+
+.large-post-collection{
+  background-color: transparent;
+  border: none ;
+  align-items: center;
+  cursor: pointer;
+}
+
+.large-post-collection p{
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+
+.large-post-collection img{
+  width: 10px;
+  width: 10px;
+  margin-left: -10px;
+}
+
+.information-header {
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+  margin: 10px;
+  margin-right: 20px;
+}
+
+.information-metadata {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.information-metadata a{
+  font-style: thin;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.information-metadata h2{
+  font-weight: 700;
+  font-size: 30px;
+  margin-top: 5px;
+}
+
+.information-metadata p{
+  font-style: thin;
+  font-weight: 300;
+  font-size: 12px;
+}
+
+.information-metadata h4{
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.information-metadata button{
+  border: none;
+  cursor: pointer;
+  margin-top: 2rem;
+  margin-left: 0;
+  padding: 0;
+  align-items: center;
+  background-color: transparent;
+}
+
+.information-metadata button img{
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  margin-left: -5px;
+}
+
+.information-comment {
+  align-items: flex-end;
+  height: 1.5rem;
+  padding: 10px;
+  border: 1px solid #E9E9E9;
+  border-radius: 25px;
+  margin-top: 10px;
+}
+
+.button-save {
+  background-color: rgb(243, 0, 0);
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+  border-radius: 35px;
+  padding: 1rem 1rem;
+  cursor: pointer;
+}
+
+
+.following-panel {
+  position: fixed;
+  display: block;
+
+  width:800px;
+  height:85%;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  border-radius: 50px;
+
+  background-color: white;
+
+  z-index: 100000;
+
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 2rem;
+}
+.following-panel-header  {
+  justify-content: space-between;
+}
+
+.following-panel-header h1 {
+  font-weight: 500;
+}
+
+.following-panel-button {
+  font-size: 15px;
+  font-weight: 400;
+  border-radius: 20px;
+  border: none;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.following-panel-topics {
+  margin-top: 20px;
+  justify-content: center;
+  gap: 5px;
+}
+
+.topic-selected {
+  font-size: 15px;
+  font-weight: 700;
+
+  border: none;
+  border-radius: 30px;
+  padding: .75rem .8rem;
+  cursor: pointer;
+}
+
+.topic {
+  font-size: 15px;
+  border: none;
+  background-color: transparent;
+  border-radius: 30px;
+  padding: .75rem .8rem;
+  cursor: pointer;
+}
+
+.following-panel-profiles {
+  margin-top: 2rem;
+  margin-inline: 4rem;
 }

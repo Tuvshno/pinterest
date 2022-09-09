@@ -23,7 +23,20 @@ const createPost = async (req, res) => {
   }
 }
 
+//Get Specific 
+const getPost = async (req, res) => {
+  try {
+    const {id: postID} = req.params
+    const post = await Post.findOne({_id: postID})
+    res.status(200).json({post})
+
+  } catch (error) {
+    res.status(500).json({message:error})
+  }
+}
+
 module.exports = {
   getPosts,
-  createPost
+  createPost,
+  getPost
 }
