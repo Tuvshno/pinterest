@@ -5,10 +5,11 @@ const {
   getPosts,
   createPost,
   getPost,
+  deleteOne
 
 } = require('../controllers/posts')
 
 router.route('/').get(getPosts).post(createPost)
-router.route('/:id').get(getPost)
+router.route('/:id').get(getPost).delete(deleteOne)
 
 module.exports = router

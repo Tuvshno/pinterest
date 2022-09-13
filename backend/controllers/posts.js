@@ -39,10 +39,20 @@ const getPost = async (req, res) => {
   }
 }
 
-
+//Delete Post
+const deleteOne = async (req, res) => {
+  try {
+    const { id: postID} = req.params
+    const post = await Post.deleteOne({ _id: postID })
+    res.status(200).json({post})
+  } catch (error) {
+    res.status(500).json({ message: error })
+  }
+}
 
 module.exports = {
   getPosts,
   createPost,
   getPost,
+  deleteOne
 }
