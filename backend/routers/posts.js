@@ -4,7 +4,7 @@ const router = express.Router()
 const {
   getPosts,
   createPost,
-  getPost
+  getPost,
 
 } = require('../controllers/posts')
 
